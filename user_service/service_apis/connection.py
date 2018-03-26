@@ -13,6 +13,6 @@ class Connection(Resource):
         print request_data
         connection_object = new_connection_post_handler.create_connection(request_data)
         send_customerid_email(connection_object)
+        print connection_object.customer_id
+        return {"result":"hello"}
 
-        return jsonify(
-            {"Connection1": get_connection_dict_response(connection_object)})

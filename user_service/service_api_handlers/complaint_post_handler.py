@@ -1,15 +1,15 @@
-from user_service.db.user_models.models import Complaint,User
+from user_service.db.user_models.models import Complaint,LoginEntry
 
 
 def create_complaint(request_data):
-    username = request_data['username']
+    authtoken = request_data['AuthID']
+    title=request_data['title']
     complaint_text = request_data['complaint_text']
     try:
-        user_object=User.objects.get(username=username)
-        if user_object:
-            complaint_object = Complaint.objects.create(user=user_object,
+        login_object=LoginEntry.objects.get(auth_token=authtoken)
+        complaint_object = Complaint.objects.create(user=login_object.user,
                                                     complaint_text=complaint_text)
-            return complaint_object
+        return complaint_object
     except Exception as e:
         print e
         return None

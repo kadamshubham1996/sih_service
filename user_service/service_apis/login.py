@@ -12,13 +12,13 @@ class Login(Resource):
         request_data = request.get_json()
         login_entry_object = login_post_handler.create_login_entry(request_data)
         if login_entry_object:
-            responce_dict= get_dict_for_login_object(login_entry_object)
-            responce = make_response(json.dumps(responce_dict))
-            responce.mimetype="application/json"
-            responce.set_cookie("auth_key",login_entry_object.auth_token)
-            return responce
+            # responce_dict= get_dict_for_login_object(login_entry_object)
+            # responce = make_response(json.dumps(responce_dict))
+            # responce.mimetype="application/json"
+            # responce.set_cookie("auth_key",login_entry_object.auth_token)
+            # return responce
             return jsonify(get_dict_for_login_object(login_entry_object))
-            # return {"result":"success"}
+            #return {"result":"success"}
 
         else:
             return {"success": False}

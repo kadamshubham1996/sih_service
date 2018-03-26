@@ -25,12 +25,10 @@ def create_connection(request_data):
             village=village,taluka=taluka,
             district=district, state=state,pincode=pin_code)
 
-        print(connection_object)
 
         connection_object.customer_id = "MSEB" + str(
             10000 + connection_object.id)
         connection_object.save()
-        print connection_object.customer_id
         return connection_object
     except Exception as e:
         print e

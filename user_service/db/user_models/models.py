@@ -13,7 +13,7 @@ class Connection(models.Model):
                    ("HT_supply", "HT_supply"))
     customer_id = models.CharField(max_length=15)
     name = models.CharField(max_length=256)
-    email_id= models.CharField(max_length=256)
+    email_id= models.CharField(max_length=20)
     survey_number = models.CharField(max_length=254)
     society_name = models.CharField(max_length=256)
     line_no1 = models.CharField(max_length=256, null=True)
@@ -32,7 +32,7 @@ class Connection(models.Model):
 
 
 class User(models.Model):
-    username = models.CharField(max_length=254, primary_key=True)
+    username = models.CharField(max_length=25, primary_key=True)
     password = models.CharField(max_length=256)
     phone = models.CharField(max_length=20, null=True)
     is_confirmed = models.BooleanField(default=False)
@@ -65,7 +65,8 @@ class Question(models.Model):
 
 class BillingEntry(models.Model):
     user = models.ForeignKey(User)
-    month = models.DateTimeField(default=datetime.now())
+    month = models.CharField(max_length=20)
+    last_date = models.CharField(max_length=20)
     billing_units = models.IntegerField()
     bill_amount = models.IntegerField()
     is_paid = models.BooleanField(default=False)
@@ -76,6 +77,6 @@ class Complaint(models.Model):
               ("Processing", "Processing"),
               ("Done", "Done"))
     user = models.ForeignKey(User)
-    #name = models.CharField(max_length=256, default=None)
+    title= models.CharField(max_length=20)
     complaint_text = models.CharField(max_length=1024)
-    status = models.CharField(max_length=124, choices=STATUS, default=None)
+    status = models.CharField(max_length=124, choices=STATUS,null=True)

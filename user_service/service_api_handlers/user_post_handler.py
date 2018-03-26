@@ -18,7 +18,10 @@ def create_user(request_data):
             user_object.is_confirmed=True
             user_object.save()
             print user_object.username
-        return user_object
+            return user_object
+        else:
+            return None
+
     except Exception as e:
 
         raise GenericCustomException(message="Error while creating user !!")

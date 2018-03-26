@@ -1,8 +1,6 @@
 SECRET_KEY = 'o$!!^76&1&(2ghcg35!))uakc9$d21=9f@8^_vdgk*1(w#^wj*'
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',

@@ -2,19 +2,21 @@ from flask import request, jsonify
 from flask_restful import Resource
 
 from user_service.service_api_handlers import user_post_handler, \
-    user_get_handler, user_delete_handler, user_put_handler
-from user_service.service_api_handlers.OTP_service_handler import OTPvalidation
+    user_get_handler, user_delete_handler, user_put_handler, OTP_post_handler
 from user_service.utils.user_related_methods import get_user_dict_response
 
 
 class UserHandler(Resource):
     def post(self):
             request_data = request.get_json()
-            user_post_handler.create_user(request_data)
+            user_object = user_post_handler.create_user(request_data)
+            #OTP_object = OTP_post_handler.create_OTP(user_object)
             #OTPvalidation(user)
             #return jsonify({"user": get_user_dict_response(user)})
-            return {"result":"success"}
-
+            if user_object:
+                return {"result":"success"}
+            else:
+                return {"result":"failse"}
 
     def get(self, username=None):
         if username:
