@@ -18,7 +18,8 @@ class Complaint(Resource):
 
     def get(self):
         request_data = request.get_json()
-        complaint_object= complaint_get_handler.get_complaint(request_data)
+        auth_token = request.headers.get('authToken')
+        complaint_object= complaint_get_handler.get_complaint(auth_token)
         if complaint_object:
             return jsonify({"Complaint": complaint_get_dict(complaint_object)})
 

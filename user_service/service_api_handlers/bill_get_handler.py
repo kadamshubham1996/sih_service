@@ -9,4 +9,4 @@ def get_bill_for_user(auth_key):
     # for bill in pending_bills:
     #     if bill.month.month == datetime.now().month:
     #         last_bill = pending_bills
-    return pending_bills
+    return pending_bills[0]
