@@ -1,6 +1,8 @@
+import ast
+
 from flask import request, jsonify
 from flask_restful import Resource
-import ast
+
 from user_service.core.action_map import get_action_map
 from user_service.utils import chat_bot
 
@@ -17,7 +19,7 @@ class Bot(Resource):
         # {"isActionable": False, 'action': None, "answer": "this is my answe"}
         action_data = bot_response['text']
         print(action_data)
-        bot_response = ast.literal_eval("{"+action_data+"}")
+        bot_response = ast.literal_eval("{" + action_data + "}")
         is_actionable = bot_response['Action'] != "Default"
         print(is_actionable)
         if is_actionable:
@@ -27,6 +29,6 @@ class Bot(Resource):
                             "responseType": "answer"})
 
         method_call = get_action_map(action)
-        data, action = method_call(auth_token)
+        data, action = method_call(auth_token, query)
         return jsonify(
             {"action": action, "data": data})
