@@ -1,0 +1,91 @@
+Hi
+"Action":"Default","Msg":"Hello"
+
+Hello
+"Action":"Default","Msg":"Hii"
+ 
+Good morning
+"Action":"Default","Msg":"Good Morning.."
+
+Good evening 
+"Action":"Default","Msg":"Good Evening.."
+
+Good night
+"Action":"Default","Msg":"Good night see u tomarrow.."
+whats up ?
+"Action":"Default","Msg":"fine, what about you."
+how are u?
+"Action":"Default","Msg":"fine, what about you."
+I'm also fine.
+"Action":"Default","Msg":"ok cool..."
+
+how can i pay the bill?
+"Action":"Screenshot_bill","Msg":"use this" 
+
+how can i register complaint?
+"Action":"complaint_registration","Msg":"Register your complaint here"
+
+how do i save the electricity?
+"Action":"Default","Msg":"Embrace natural light,change your bulb,unplug any appliances that aren't in use etc."
+
+show me the last month electricity bill?
+"Action":"GENERATE_BILL_PDF","which":"last month"
+
+show me the bill.
+"Action":"GENERATE_BILL_PDF","which":"last month"
+
+what is my bill 
+"Action":"GENERATE_BILL_PDF","which":"last month"
+
+How can i register for app
+"Action":"Screenshot_appRegister","Msg":"Refer this"
+
+show my billing history
+"Action":"bill_History","which":"All months"
+
+what is last date for bill payment
+"Action":"BillLastdate","Msg":"Please pay your bill before this date"
+
+show my all bills.
+"Action":"bill_History","which":"All months"
+
+show me the billing history
+"Action":"bill_History","which":"All months"
+
+how to apply for new connection
+"Action":"Screenshot_newConnection","Msg":"Go through this"
+
+how do i scan QR code?
+"Action":"Screenshot_QRcode","Msg":"use quick pay mode"
+
+how to pay others bill ?
+"Action":"Default","Msg":"use the Quick pay mode to pay others bill."
+
+I want to pay bill for others how can i do that ?
+"Action":"Default","Msg":"use the Quick pay mode to pay others bill."
+
+bye
+"Action":"Default","Msg":"bye."
+
+thank you
+"Action":"Default","Msg":"Welcome.."
+
+you are good
+"Action":"Default","Msg":"Thank you"
+
+who creted u
+"Action":"Default","Msg":"The symbotics."
+
+In which language u r made
+"Action":"Default","Msg":"python"
+
+who are you
+"Action":"Default","Msg":"I am chatbot."
+ 
+what are u doing
+"Action":"Default","Msg":"I'm handling your requests."
+
+ok see u then
+"Action":"Default","Msg":"Nice talking with you"
+
+

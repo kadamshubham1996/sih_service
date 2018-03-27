@@ -1,8 +1,42 @@
+Where do I find my Consumer Number ?
+"Action":"Default","Msg":"Consumer number is given on your bill"
 
+what is my consumer id ?
+"Action":"Default","Msg":"Consumer number is given on your bill"
 
-Get me bill
-"{'isActionable': True, 'action': 'GET_BILL', 'answer': None}"
+My payment was successful, but the provider still says its not paid?
+"Action":"newComplaint_registration","Msg":"your complaint has been registered"
 
+fine
+"Action":"Default","Msg":"ok cool..."
 
+though i paid my full bill ,but provider said its not paid?
+"Action":"newComplaint_registration","Msg":"your complaint has been registered"
 
+How do i know if my payment was successful?
+"Action":"Default","Msg":"you will get the conformation message on your registered mobile number and also on your mail I'd."
+
+Can I make a partial payment of my bill?
+"Action":"Default","Msg":"No,sorry this service is not available."
+
+How will I get to know if the bill was paid?
+"Action":"Default","Msg":"you will get the conformation message on your registered mobile number and also on your mail I'd."
+
+what is the status of my complaint
+"Action":"complaint_status","Msg":"Your complaint will proceed shortly"
+
+my complaint status
+"Action":"complaint_status","Msg":"Your complaint will proceed shortly"
+
+how can i know the status of my complaint 
+"Action":"complaint_status","Msg":"Your complaint will proceed shortly"
+
+I have regiter a complaint does its proceeded?
+"Action":"complaint_status","Msg":"Your complaint will proceed shortly"
+
+my electricity connection is interrupted
+"Action":"newComplaint_registration","Msg":"Your complaint has been register"
+
+my last month bill was incorrect
+"Action":"newComplaint_registration","Msg":"Your complaint has been register"
 

@@ -12,20 +12,21 @@ class Bot(Resource):
         auth_token = request.headers.get('authToken')
         query = request_data['query']
         bot_response = chat_bot.get_resopnse_from_bot(query)
-
+        print(bot_response)
         # {"isActionable": True, 'action': "GET_BILL", "answer": None}
         # {"isActionable": False, 'action': None, "answer": "this is my answe"}
         action_data = bot_response['text']
-        bot_response = ast.literal_eval(action_data)
-        is_actionable = bot_response['isActionable']
-        action = None
+        print(action_data)
+        bot_response = ast.literal_eval("{"+action_data+"}")
+        is_actionable = bot_response['Action'] != "Default"
+        print(is_actionable)
         if is_actionable:
-            action = bot_response['action']
+            action = bot_response['Action']
         else:
-            return jsonify({"action": None, "data": action['answer'],
+            return jsonify({"action": 'no_action', "data": bot_response['Msg'],
                             "responseType": "answer"})
 
         method_call = get_action_map(action)
-        response, response_type = method_call(auth_token)
+        data, action = method_call(auth_token)
         return jsonify(
-            {"action": action, "data": response, "responseType": response_type})
+            {"action": action, "data": data})

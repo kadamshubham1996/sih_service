@@ -1,6 +1,7 @@
 import django
 
 from user_service.conf.init_startup import init_startup
+from user_service.service_apis.BIllPDF import ViewPDF
 from user_service.service_apis.bot import Bot
 
 django.setup()
@@ -13,7 +14,7 @@ from user_service.service_apis.user import UserHandler
 from user_service.service_apis.login import Login
 from user_service.service_apis.logout import Logout
 from user_service.service_apis.question import Question
-from user_service.service_apis.bill import Bill
+from user_service.service_apis.bill import Bill_Pdf_Display
 from user_service.service_apis.connection import Connection
 from user_service.service_apis.complaint import Complaint
 # from user_service.service_apis.chatbot import ChatBot
@@ -30,9 +31,9 @@ api.add_resource(Logout, "/logout")
 api.add_resource(Validate, '/validate')
 api.add_resource(Connection, '/connection')
 api.add_resource(Question, '/question')
-api.add_resource(Bill, "/bill")
+api.add_resource(Bill_Pdf_Display, "/bill")
+api.add_resource(ViewPDF, "/view/pdf/<filename>")
 api.add_resource(Complaint, "/complaint")
-# api.add_resource(ChatBot,"/chat")
 api.add_resource(Bill_History, "/bill_history")
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ def send_pdf(bill_object):
     bill_unit=bill_object.billing_units
     bill_amount=bill_object.bill_amount
     billname = str(username)+str(month)+".pdf"
-    path = os.path.join(dir_path, billname)
+    path = os.path.join(dir_path+"/static", billname)
     c = canvas.Canvas(path, pagesize=letter)
 
     #c= canvas.Canvas("Qrcodes1.pdf", pagesize=letter)
@@ -40,8 +40,7 @@ def send_pdf(bill_object):
     d.add(qr_code)
     renderPDF.draw(d, c, 500, 560)
     c.save()
-    print path
-    return path
+    return billname
 
 
 if __name__ == "__main__":

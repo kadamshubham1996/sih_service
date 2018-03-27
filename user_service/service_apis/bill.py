@@ -9,8 +9,9 @@ from user_service.service_api_handlers import bill_post_handler, \
 from user_service.utils.billing_entry_method import get_dict_for_bill_object
 
 
-class Bill(Resource):
-    def post(self):
+class Bill_Pdf_Display(Resource):
+    def get(self):
+        # Admin hits this api
         request_data = request.get_json()
         bill_object = bill_post_handler.bill_entry(request_data)
         if bill_object:
@@ -18,16 +19,22 @@ class Bill(Resource):
         else:
             return {"success": False}
 
-    def get(self):
+    def post(self):
+        # Generate PDF and returns PDF URL to view
         auth_token = request.headers.get('authToken')
+        request_data=request.get_json()
         pending_bill = bill_get_handler.get_bill_for_user(
-            auth_token)
-        # return jsonify({"bill":get_dict_for_bill_object(pending_bill)})
+            auth_token,request_data)
         if pending_bill:
-            path = pdf_genration.send_pdf(pending_bill)
-            return jsonify({"success": True, "billPath": Config.service_url+path})
+            fileName = pdf_genration.send_pdf(pending_bill)
+            return jsonify({"success": True, "billPath": fileName})
 
-
-    def put(self):
-        pass
-
+    # def put(self):
+    #     request_data = request.get_json()
+    #     history_object = history_post_handler.get_history(request_data)
+    #     if history_object:
+    #         return jsonify(
+    #             {"billing_history": history_dict_response(history_object)})
+    #         # return {"result":"success"}
+    #     else:
+    #         return {"success": False}

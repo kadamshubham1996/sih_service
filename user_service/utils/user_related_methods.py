@@ -17,6 +17,7 @@ def get_user_dict_response(user_object):
 def check_credentials_and_get_object(username, password):
     try:
         user_object = User.objects.get(username=username, password=password)
+        print user_object.username
         return user_object
     except Exception as e:
         raise UnauthorisedException()
