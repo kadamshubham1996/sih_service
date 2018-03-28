@@ -29,13 +29,13 @@ how do i save the electricity?
 "Action":"Default","Msg":"Embrace natural light,change your bulb,unplug any appliances that aren't in use etc."
 
 show me the last month electricity bill?
-"Action":"GENERATE_BILL_PDF","which":"last month"
+"Action":"Generate bill pdf","which":"last month"
 
 show me the bill.
-"Action":"GENERATE_BILL_PDF","which":"last month"
+"Action":"Generate bill pdf","which":"last month"
 
 what is my bill 
-"Action":"GENERATE_BILL_PDF","which":"last month"
+"Action":"Generate bill pdf","which":"last month"
 
 How can i register for app
 "Action":"Screenshot_appRegister","Msg":"Refer this"

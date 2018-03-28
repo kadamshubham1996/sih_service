@@ -12,7 +12,8 @@ class UserHandler(Resource):
             user_object = user_post_handler.create_user(request_data)
             # OTP_object = OTP_post_handler.create_OTP(user_object)
             # OTPvalidation(user)
-            return jsonify({"user": get_user_dict_response(user)})
+            #return jsonify({"user": get_user_dict_response(user_object)})
+
             if user_object:
                 return {"result":"success"}
             else:

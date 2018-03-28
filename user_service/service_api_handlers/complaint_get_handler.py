@@ -7,6 +7,7 @@ def get_complaint(authtoken):
         login_object=LoginEntry.objects.get(auth_token=authtoken)
         if login_object:
             billing_object = BillingEntry.objects.get(user=login_object.user)
+
             return billing_object
     except Exception as e:
         print e

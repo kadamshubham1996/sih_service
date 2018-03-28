@@ -4,8 +4,6 @@ from user_service.core.action_methods import get_my_bill,complaint_status,bill_H
 def get_action_map(request_string):
     action_map ={
         "SAY_HELLO": "Hello welcome !!",
-
-
        "Generate bill pdf": get_my_bill,
         "complaint_status": complaint_status,
         "bill_History":bill_History,

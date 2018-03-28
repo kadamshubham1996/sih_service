@@ -7,10 +7,10 @@ from user_service.utils.history_dict_response import history_dict_response
 
 class Bill_History(Resource):
     def post(self):
-            # Select month and autopopulate billing info
             request_data = request.get_json()
             history_object = history_post_handler.get_history(request_data)
             if history_object:
+                print history_object.month
                 return jsonify({"billing_history": history_dict_response(history_object)})
                 #return {"result":"success"}
             else:

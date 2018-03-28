@@ -11,7 +11,7 @@ class Bot(Resource):
     def post(self):
         # import pdb;pdb.set_trace()
         request_data = request.get_json()
-        auth_token = request.headers.get('authToken')
+        auth_token = request.headers.get('AuthID')
         query = request_data['query']
         bot_response = chat_bot.get_resopnse_from_bot(query)
         print(bot_response)
@@ -29,6 +29,6 @@ class Bot(Resource):
                             "responseType": "answer"})
 
         method_call = get_action_map(action)
-        data, action = method_call(auth_token, query)
+        data, action = method_call(auth_token)
         return jsonify(
             {"action": action, "data": data})
