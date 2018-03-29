@@ -5,7 +5,7 @@ def complaint_get_dict(complaint_object):
 
 
     response_dict = {
-                     "title": complaint_object.user,
+                     "title": complaint_object.user.username,
                      "complaint_text": complaint_object.complaint_text,
                      'status': complaint_object.status
                      }

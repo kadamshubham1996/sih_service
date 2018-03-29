@@ -2,8 +2,8 @@ from flask import request, jsonify
 from flask_restful import Resource
 
 from user_service.conf.environment.config import Config
-from user_service.pdf import pdf_generation
-from user_service.pdf.pdf_generation import  send_pdf
+from user_service.pdf import pdf_generation3
+from user_service.pdf.pdf_generation3 import  send_pdf
 from user_service.service_api_handlers import bill_post_handler, \
     bill_get_handler, history_post_handler
 from user_service.utils import history_dict_response
@@ -22,12 +22,12 @@ class Bill_Pdf_Display(Resource):
 
     def post(self):
         # Generate PDF and returns PDF URL to view
-        auth_token = request.headers.get('authToken')
         request_data=request.get_json()
+        auth_token = request_data['AuthID']
         pending_bill = bill_get_handler.get_bill_for_user(
             auth_token,request_data)
         if pending_bill:
-            fileName = pdf_generation.send_pdf(pending_bill)
+            fileName = pdf_generation3.send_pdf(pending_bill)
             return jsonify({"billPath": fileName})
 
     # def post(self):

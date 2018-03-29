@@ -1,10 +1,10 @@
 import django
-
+django.setup()
 from user_service.conf.init_startup import init_startup
 from user_service.service_apis.BIllPDF import ViewPDF
 from user_service.service_apis.bot import Bot
 
-django.setup()
+
 
 from flask_restful import Api
 

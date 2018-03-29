@@ -1,6 +1,7 @@
 from flask import request, jsonify
 from flask_restful import Resource
 
+from user_service import utils
 from user_service.service_api_handlers import complaint_post_handler, complaint_get_handler
 from user_service.utils.complaint_get_dict import complaint_get_dict
 
@@ -16,12 +17,13 @@ class Complaint(Resource):
                 return {"success": False}
 
 
-    def get(self):
-        request_data = request.get_json()
-        auth_token = request.headers.get('authToken')
-        complaint_object= complaint_get_handler.get_complaint(auth_token)
-        if complaint_object:
-            return jsonify({"Complaint": complaint_get_dict(complaint_object)})
+    def put(self):
+            request_data = request.get_json()
+            complaint_object = complaint_post_handler.complaint_view(request_data)
+            response_dicts = [complaint_get_dict(x)
+                              for x in complaint_object]
+            if response_dicts:
+                return jsonify({"Complaint": response_dicts})
 
-        else:
-            return {"success": False}
+            else:
+                return {"success": False}
